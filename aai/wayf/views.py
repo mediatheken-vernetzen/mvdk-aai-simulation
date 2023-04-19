@@ -1,16 +1,23 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
 
 def index(request):
-    z = [1, 2, 3, 4]
+    universities = ["Goethe-Universität", "Freie Universität Berlin", "Technische Universiät Berlin"]
+    universities_abr = ["ffm", "fub", "tub"]
     context = {
-        'z': z,
+        'universities': universities,
+        'universities_abr': universities_abr,
     }
+
     return render(request, "wayf/index.html", context)
-    # return HttpResponse(template.render(context, request))
-    
-    """
-    auth_queryset = {"TU Berlin", "Frankfurt am Main"}
-    return HttpResponse("WAYF index")
-    """
+
+def redirect_uni(request):
+    uni = request.POST.get("uni_select")
+    return redirect('/eduroam_' + uni + '/login/')
+
+@login_required(login_url='/eduroam_ffm/login/')
+def success(request):
+    return redirect('https://google.de')

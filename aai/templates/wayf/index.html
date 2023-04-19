@@ -1,0 +1,30 @@
+<ul class="sidebar-nav">
+   {% if user.is_authenticated %}
+   Erfolgreiche Authentifizierung!
+   <br>
+   Weiterleitung erfolgt...
+   <br>
+   <br>
+   User: {{ user.get_username }}
+   <br>
+   <br>
+   <a href="{% url 'logout' %}?next={{ request.path }}">Logout</a>
+   <br>
+   <br>
+   <a href="{% url 'success' %}">redirect</a>
+
+   {% else %}
+
+   <form action="{% url 'redirect_uni' %}" method="post">
+    {% csrf_token %}
+    <select name="uni_select">
+        <option value="ffm">Goethe-Universität</option>
+        <option value="fub">Freie Universität Berlin</option>
+        <option value="tub">Technische Universiät Berlin</option>
+    </select>
+    <input type="submit" value="Weiter">
+    </form>
+
+   {% endif %}
+  </ul>
+

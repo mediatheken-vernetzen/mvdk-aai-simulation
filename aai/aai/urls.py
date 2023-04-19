@@ -36,13 +36,16 @@ class GroupList(generics.ListAPIView):
     serializer_class = GroupSerializer
 
 # Setup the URLs and include login URLs for the browsable API.
-urlpatterns = [
-    path('admin/', admin.site.urls),
+"""
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('users/', UserList.as_view()),
     path('users/<pk>/', UserDetails.as_view()),
     path('groups/', GroupList.as_view()),
-    path('wayf/', include('wayf.urls')),
-    path('eduroam_tub/', include('eduroam_tub.urls')),
-    path('eduroam_ffm/', include('eduroam_ffm.urls')),
+    """
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('wayf.urls')),
+    path('eduroam_tub/', include('django.contrib.auth.urls')),
+    path('eduroam_fub/', include('django.contrib.auth.urls')),
+    path('eduroam_ffm/', include('django.contrib.auth.urls')),
 ]
