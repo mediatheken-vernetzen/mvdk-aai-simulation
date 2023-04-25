@@ -7,7 +7,6 @@ services:
     image: ghcr.io/mediatheken-vernetzen/mvdk-backend-aai-test-0.1
     command: >
       bash -c "python3 manage.py makemigrations
-      && python3 manage.py migrate
-      && gunicorn mvdk_backend_aai_test.wsgi:application --bind 0.0.0.0:8080 --access-logfile - --log-level debug"
+      && python3 manage.py migrate"
     ports:
       - "8084:8080"
