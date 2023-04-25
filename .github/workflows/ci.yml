@@ -58,4 +58,4 @@ jobs:
           password: ${{ secrets.PORTAINER_PASSWORD }}
           stack-name: 'mvdk-backend-aai-test'
           stack-definition: 'docker-compose.yml'
-          image: ghcr.io/mediatheken-vernetzen/${{ env.IMAGE_TAG }}-${{ evn.IMAGE_VERSION }}
+          image: ghcr.io/mediatheken-vernetzen/${{ env.IMAGE_TAG }}-${{ env.IMAGE_VERSION }}
