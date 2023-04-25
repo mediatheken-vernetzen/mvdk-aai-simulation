@@ -11,9 +11,3 @@ services:
       && gunicorn mvdk_backend_aai_test.wsgi:application --bind 0.0.0.0:8080 --access-logfile - --log-level debug"
     ports:
       - "8084:8080"
-    environment:
-      - DEBUG=${DEBUG}
-      - SECRET_KEY=${SECRET_KEY}
-      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
-    depends_on:
-      - db
