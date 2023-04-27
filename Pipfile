@@ -8,6 +8,7 @@ django = "*"
 django-oauth-toolkit = "*"
 djangorestframework = "*"
 environs = "*"
+tzdata = "*"
 
 [dev-packages]
 
