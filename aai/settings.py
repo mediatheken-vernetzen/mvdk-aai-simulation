@@ -30,7 +30,7 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=['localhost', '127.0.0.1'])
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 
 # Application definition
 
@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "rest_framework",
     'rest_framework.authtoken'
 ]
+
+REDIRECT_URL = env.str("REDIRECT_URL", default="https://www.performing-arts.eu")
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

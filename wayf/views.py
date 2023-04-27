@@ -3,6 +3,7 @@ from django.template import loader
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
+from django.conf import settings
 
 def index(request):
     universities = ["Goethe-Universität", "Freie Universität Berlin", "Technische Universiät Berlin"]
@@ -20,4 +21,4 @@ def redirect_uni(request):
 
 @login_required(login_url='/eduroam_ffm/login/')
 def success(request):
-    return redirect('https://google.de')
+    return redirect(settings.REDIRECT_URL)
