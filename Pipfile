@@ -9,6 +9,7 @@ django-oauth-toolkit = "*"
 djangorestframework = "*"
 environs = "*"
 tzdata = "*"
+whitenoise = "*"
 
 [dev-packages]
 
