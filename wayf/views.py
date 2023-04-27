@@ -21,4 +21,4 @@ def redirect_uni(request):
 
 @login_required(login_url='/eduroam_ffm/login/')
 def success(request):
-    return redirect(settings.REDIRECT_URL)
+    return redirect(settings.AAI_REDIRECT_URL)

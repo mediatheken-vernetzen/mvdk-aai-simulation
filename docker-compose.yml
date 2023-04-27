@@ -7,3 +7,8 @@ services:
     image: ghcr.io/mediatheken-vernetzen/mvdk-backend-aai-test-0.1
     ports:
       - "8085:8080"
+    environment:
+      - DEBUG=${DEBUG}
+      - SECRET_KEY=${SECRET_KEY}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+      - AAI_REDIRECT_URL=${AAI_REDIRECT_URL}

@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken'
 ]
 
-REDIRECT_URL = env.str("REDIRECT_URL", default="https://www.performing-arts.eu")
+AAI_REDIRECT_URL = env.str("AAI_REDIRECT_URL", default="https://www.performing-arts.eu")
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
