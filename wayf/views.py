@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.conf import settings
 from cryptography.fernet import Fernet
+import requests
 
 def index(request):
     universities = ["Goethe-Universität", "Freie Universität Berlin", "Technische Universiät Berlin"]
@@ -20,12 +21,15 @@ def redirect_uni(request):
     uni = request.POST.get("uni_select")
     redir = redirect('/eduroam_' + uni + '/login/')
     return redir
+    import Response
 
 @login_required(login_url='/eduroam_ffm/login/')
 def success(request):
     keyVar = Fernet.generate_key()
     ferVar = Fernet(keyVar)
     encString = ferVar.encrypt(str(request.user).encode())
-    redir = redirect(settings.AAI_REDIRECT_URL)
-    redir.headers["token"] = encString
+    token = encString
+    url_redirect = settings.AAI_REDIRECT_URL + "?token=" +  str(token)
+    redir = redirect(url_redirect)
+
     return redir
